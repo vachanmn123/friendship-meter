@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.svg">
+    <title>Friendship Meter {{room}}</title>
+</head>
+<body align="center" bgcolor="#222425">
+    <font color="white">
+        <h1>Friendship Meter</h1>
+                <p align="center">This is a fun and simple website that will let you test how well you and your friend know each
+                    other!<br>
+                    <bold>This is just a joke and should not be taken seriously.</bold>
+                </p>
+        <hr>
+        <div align="center">
+            <p>Room Code: {{room}}</p>
+            <p>Currently in room: {{players}}</p>
+        </div>
+        <div>
+            <form action="/room", method="post">
+                <h2>Your details:</h2>
+                {% for question in self_questions %}
+                    <p>{{question}}</p>
+                    <input type="text" name="self_{{self_questions.index(question)}}"><br>
+                {% endfor %}
+                <h2>Friend's details:</h2>
+                {% for question in friend_questions %}
+                    <p>{{question}}</p>
+                    <input type="text" name="friend_{{friend_questions.index(question)}}"><br>
+                {% endfor %}
+                <input type="hidden" name="room" value="{{room}}">
+                <input type="hidden" name="username" value="{{uname}}">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </font>
+</body>
+</html>

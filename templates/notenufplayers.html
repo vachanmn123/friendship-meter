@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.svg">
+    <title>Friendship Meter {{room}}</title>
+</head>
+<body align="center" bgcolor="#222425">
+    <font color="white">
+        <h1>Friendship Meter</h1>
+        <p align="center">This is a fun and simple website that will let you test how well you and your friend know each
+            other!<br>
+            <bold>This is just a joke and should not be taken seriously.</bold>
+        </p>
+        <hr>
+        <div align="center">
+            <p>Room Code: {{room}}</p>
+            <p>Currently in room: {{players}}</p>
+        </div>
+        <p>Waiting for other player to join!</p>
+        <script>
+            function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+            sleep(5000);
+            var room = "{{room}}";
+            var username = "{{uname}}";
+            window.location.replace(`/room?room=${room}&name=${username}`);
+        </script>
+    </font>
+</body>
+</html>
